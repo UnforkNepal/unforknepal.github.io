@@ -1,0 +1,169 @@
+---
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Workforce Action Plan for Gen-Z Revolution Agendas">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<title>{title}</title>
+	<style>
+		:root {
+			--primary-color: #1e40af;
+			--secondary-color: #3b82f6;
+			--accent-color: #f59e0b;
+			--text-color: #1f2937;
+			--bg-color: #ffffff;
+			--light-bg: #f8fafc;
+			--border-color: #e5e7eb;
+		}
+
+		body {
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			line-height: 1.6;
+			color: var(--text-color);
+			background-color: var(--bg-color);
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
+
+		header {
+			background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+			color: white;
+			padding: 2rem 0;
+			text-align: center;
+			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+		}
+
+		header h1 {
+			margin: 0;
+			font-size: 2.5rem;
+			font-weight: 700;
+			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		header p {
+			margin: 0.5rem 0 0 0;
+			font-size: 1.2rem;
+			opacity: 0.9;
+		}
+
+		main {
+			padding: 3rem 0;
+			background-color: var(--light-bg);
+		}
+
+		.content {
+			display: flex;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			scroll-behavior: smooth;
+			height: 100vh;
+			width: 100vw;
+		}
+
+		h2 {
+			color: var(--primary-color);
+			font-size: 1.8rem;
+			font-weight: 600;
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+			border-bottom: 3px solid var(--accent-color);
+			padding-bottom: 0.5rem;
+		}
+
+		h3 {
+			color: var(--secondary-color);
+			font-size: 1.4rem;
+			font-weight: 600;
+			margin-top: 1.5rem;
+			margin-bottom: 0.8rem;
+		}
+
+		h4 {
+			color: var(--text-color);
+			font-size: 1.2rem;
+			font-weight: 500;
+			margin-top: 1.2rem;
+			margin-bottom: 0.6rem;
+		}
+
+		p {
+			margin-bottom: 1rem;
+			font-size: 1rem;
+			line-height: 1.7;
+		}
+
+		ul, ol {
+			margin-bottom: 1.5rem;
+			padding-left: 1.5rem;
+		}
+
+		li {
+			margin-bottom: 0.5rem;
+			line-height: 1.6;
+		}
+
+		strong {
+			color: var(--primary-color);
+			font-weight: 600;
+		}
+
+		.section {
+			margin-bottom: 3rem;
+		}
+
+		.highlight {
+			background-color: var(--light-bg);
+			border-left: 4px solid var(--accent-color);
+			padding: 1rem;
+			margin: 1.5rem 0;
+			border-radius: 0 8px 8px 0;
+		}
+
+		@media (max-width: 768px) {
+			header h1 {
+				font-size: 2rem;
+			}
+
+			.content {
+				padding: 2rem;
+				margin: 0 10px;
+			}
+
+			h2 {
+				font-size: 1.6rem;
+			}
+
+			h3 {
+				font-size: 1.3rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1>Unfork Nepal</h1>
+			<p>Workforce Action Plan for Gen-Z Revolution Agendas</p>
+		</div>
+	</header>
+
+	<main>
+		<div class="container">
+			<div class="content">
+				<slot />
+			</div>
+		</div>
+	</main>
+</body>
+</html>

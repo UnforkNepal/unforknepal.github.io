@@ -1,0 +1,48 @@
+---
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
+const isEnglish = !currentPath.startsWith('/ne');
+const targetPath = isEnglish
+  ? (currentPath === '/' ? '/ne' : `/ne${currentPath}`)
+  : (currentPath === '/ne' ? '/' : currentPath.replace(/^\/ne/, '') || '/');
+const buttonText = isEnglish ? 'नेपाली' : 'English';
+---
+
+<a href={targetPath} class="language-toggle">
+  {buttonText}
+</a>
+
+<style>
+  .language-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #dc2626;
+    color: #dc2626;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .language-toggle:hover {
+    background: #dc2626;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .language-toggle {
+      top: 15px;
+      right: 15px;
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+</style>
