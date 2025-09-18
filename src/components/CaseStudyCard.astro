@@ -1,0 +1,270 @@
+---
+// CaseStudyCard.astro - Individual case study display
+interface Props {
+  case: {
+    id: string;
+    title: string;
+    livesLost: { value: number; description?: string; source?: string };
+    moneyWasted: { value: number; description?: string; source?: string };
+    description: string;
+    imageUrl: string;
+    urgencyLevel: string;
+    location: string;
+    category: string;
+    status: string;
+    sources?: Array<{
+      title: string;
+      organization: string;
+      url: string;
+      date: string;
+      verificationStatus: string;
+      documentType: string;
+    }>;
+  };
+}
+
+const { case: caseData } = Astro.props;
+---
+
+<div class="case-study-card" data-urgency={caseData.urgencyLevel}>
+  <div class="case-image">
+    <img src={caseData.imageUrl} alt={caseData.title} loading="lazy" />
+    <div class="case-urgency-badge">{caseData.urgencyLevel.toUpperCase()}</div>
+  </div>
+
+  <div class="case-content">
+    <div class="case-header">
+      <h3 class="case-title">{caseData.title}</h3>
+      {caseData.tagline && (
+        <p class="case-tagline">{caseData.tagline}</p>
+      )}
+      <div class="case-meta">
+        <span class="case-location">{caseData.location}</span>
+        <span class="case-category">{caseData.category}</span>
+      </div>
+    </div>
+
+    <div class="case-stats">
+      <div class="stat-item">
+        <div class="stat-value">{caseData.livesLost.value}</div>
+        <div class="stat-label">Lives Lost</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">रू{(caseData.moneyWasted.value / 100000).toFixed(0)}L</div>
+        <div class="stat-label">Money Wasted</div>
+      </div>
+    </div>
+
+    <p class="case-description">{caseData.description}</p>
+
+    <div class="case-actions">
+      <span class="case-status">{caseData.status}</span>
+      <button class="case-share-btn" data-case-id={caseData.id}>
+        Share Case
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .case-study-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .case-study-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  }
+
+  .case-study-card[data-urgency="critical"] {
+    border-color: #DC143C;
+  }
+
+  .case-study-card[data-urgency="high"] {
+    border-color: #FF6B35;
+  }
+
+  .case-study-card[data-urgency="medium"] {
+    border-color: #FFA500;
+  }
+
+  .case-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .case-study-card:hover .case-image img {
+    transform: scale(1.05);
+  }
+
+  .case-urgency-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(220, 20, 60, 0.9);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .case-content {
+    padding: 1.5rem;
+  }
+
+  .case-header {
+    margin-bottom: 1rem;
+  }
+
+  .case-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .case-tagline {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #DC143C;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .case-meta {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  .case-stats {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem;
+    background: rgba(220, 20, 60, 0.1);
+    border-radius: 8px;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #DC143C;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .case-description {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .case-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .case-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 4px 8px;
+    border-radius: 12px;
+  }
+
+  .case-share-btn {
+    background: #DC143C;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .case-share-btn:hover {
+    background: #B01030;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    .case-stats {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .case-actions {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: stretch;
+    }
+
+    .case-share-btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Share functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.case-share-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const caseId = (e.target as HTMLElement).dataset.caseId;
+        const caseCard = (e.target as HTMLElement).closest('.case-study-card');
+        const title = caseCard?.querySelector('.case-title')?.textContent || '';
+
+        if (navigator.share) {
+          navigator.share({
+            title: title,
+            text: `Corruption case: ${title} - Help stop this!`,
+            url: window.location.href
+          });
+        } else {
+          // Fallback: copy to clipboard
+          navigator.clipboard.writeText(`${title} - ${window.location.href}`);
+          (e.target as HTMLElement).textContent = 'Copied!';
+          setTimeout(() => {
+            (e.target as HTMLElement).textContent = 'Share Case';
+          }, 2000);
+        }
+      });
+    });
+  });
+</script>

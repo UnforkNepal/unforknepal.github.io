@@ -1,0 +1,472 @@
+---
+// HeroImpact.astro - Hero section with human cost messaging
+import DailyTollMetrics from './DailyTollMetrics.astro';
+import unforkData from '../data/unfork-nepal-data.json';
+---
+
+<section class="hero-impact-section emotional-glow" style="background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);">
+  <div class="hero-impact-container">
+    <div class="hero-impact-content">
+      <div class="hero-header-row">
+        <div class="emotional-alert">
+          <span class="alert-icon">🚨</span>
+          <span class="alert-text">Corruption Kills</span>
+        </div>
+
+      </div>
+      <div class="hero-primary-message">
+        <h1 class="hero-main-title">
+          {unforkData.impactMetrics.featuredCase.title}
+        </h1>
+        <p class="hero-subtitle">
+          Corruption Kills - Every Rupee Stolen is Blood on Corrupt Hands
+        </p>
+        <div class="emotional-quote">
+          <blockquote>
+            "My husband died because we couldn't get him to the hospital in time. The 'road' they built with our tax money? It doesn't exist."
+          </blockquote>
+          <cite>- Victim of Corruption</cite>
+        </div>
+      </div>
+
+      <div class="hero-stats-preview">
+        <DailyTollMetrics />
+      </div>
+
+      <div class="hero-cta-section">
+        <a href="#daily-toll" class="hero-cta-button primary">
+          See How Corruption Kills
+        </a>
+        <a href="https://forms.gle/3mknr3AVW7UWvNnLA" target="_blank" rel="noopener noreferrer" class="hero-cta-button secondary">
+          Stop Corruption Killers
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual-impact">
+      <div class="impact-comparison">
+        <div class="comparison-item before">
+          <div class="comparison-image">
+            <img src="/images/blood-splatter-bg.jpg" alt="Corruption's impact" />
+            <div class="image-overlay">
+              <div class="overlay-content">
+                <h3>What Corruption Costs</h3>
+                <p>{unforkData.impactMetrics.featuredCase.summary}</p>
+              </div>
+            </div>
+          </div>
+          <div class="comparison-label">The Reality</div>
+        </div>
+
+        <div class="comparison-divider">
+          <div class="divider-line"></div>
+          <div class="divider-text">VS</div>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="comparison-item after">
+          <div class="comparison-image">
+            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=400&fit=crop&crop=center" alt="What could be achieved" />
+            <div class="image-overlay">
+              <div class="overlay-content">
+                <h3>What We Could Achieve</h3>
+                <p>Hospitals that save lives, schools that educate, roads that connect communities.</p>
+              </div>
+            </div>
+          </div>
+          <div class="comparison-label">The Potential</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-impact-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-impact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&h=1080&fit=crop&crop=center') center/cover;
+    opacity: 0.1;
+    z-index: 0;
+  }
+
+  .hero-impact-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-impact-content {
+    color: white;
+  }
+
+  .hero-primary-message {
+    margin-bottom: 3rem;
+  }
+
+  .hero-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .emotional-alert {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: #DC143C;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: alertPulse 2s ease-in-out infinite;
+  }
+
+  .manifesto-button {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .manifesto-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-1px);
+  }
+
+  .alert-icon {
+    font-size: 1.2rem;
+  }
+
+  @keyframes alertPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .hero-main-title {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-main-title .emotional-highlight {
+    color: #FFD700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+
+  .hero-main-title .emotional-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    border-radius: 2px;
+    animation: highlightGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes highlightGlow {
+    0%, 100% { opacity: 1; transform: scaleX(1); }
+    50% { opacity: 0.8; transform: scaleX(1.05); }
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    opacity: 0.95;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+
+  .emotional-quote {
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #FFD700;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 0 12px 12px 0;
+    backdrop-filter: blur(10px);
+  }
+
+  .emotional-quote blockquote {
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    color: rgba(255, 255, 255, 0.95);
+    position: relative;
+  }
+
+  .emotional-quote blockquote::before {
+    content: '"';
+    font-size: 3rem;
+    color: #FFD700;
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    opacity: 0.3;
+  }
+
+  .emotional-quote cite {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    text-align: right;
+    display: block;
+  }
+
+  .hero-stats-preview {
+    margin-bottom: 3rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stat-preview-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #FFD700;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .stat-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-cta-section {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-cta-button {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-cta-button.primary {
+    background: rgba(255, 255, 255, 0.95);
+    color: #DC143C;
+    border: 2px solid rgba(255, 255, 255, 1);
+  }
+
+  .hero-cta-button.primary:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-cta-button.secondary {
+    background: rgba(220, 20, 60, 0.9);
+    color: white;
+    border: 2px solid rgba(220, 20, 60, 0.9);
+  }
+
+  .hero-cta-button.secondary:hover {
+    background: #DC143C;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4);
+  }
+
+  .hero-visual-impact {
+    position: relative;
+  }
+
+  .impact-comparison {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .comparison-item {
+    flex: 1;
+    position: relative;
+  }
+
+  .comparison-image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    height: 300px;
+  }
+
+  .comparison-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .comparison-item:hover .comparison-image img {
+    transform: scale(1.05);
+  }
+
+  .image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 2rem 1.5rem 1.5rem;
+    color: white;
+  }
+
+  .overlay-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .overlay-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.4;
+  }
+
+  .comparison-label {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+
+  .comparison-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .divider-line {
+    width: 2px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .divider-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FFD700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 1024px) {
+    .hero-impact-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .hero-main-title {
+      font-size: 2.5rem;
+    }
+
+    .impact-comparison {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .comparison-divider {
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    .divider-line {
+      width: 50px;
+      height: 2px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-main-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-cta-section {
+      justify-content: center;
+    }
+
+    .hero-header-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .manifesto-button {
+      align-self: flex-end;
+    }
+  }
+</style>

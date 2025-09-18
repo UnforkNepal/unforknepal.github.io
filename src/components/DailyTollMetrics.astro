@@ -1,0 +1,60 @@
+---
+import ImpactCounter from './ImpactCounter.astro';
+import unforkData from '../data/unfork-nepal-data.json';
+---
+<section class="daily-toll-metrics">
+  <div class="toll-metrics-grid">
+    <ImpactCounter
+	  suffix={unforkData.impactMetrics.dailyToll.livesLost.units}
+      label={`Lives Lost`}
+      value={unforkData.impactMetrics.dailyToll.livesLost.estimate}
+      color="#DC143C"
+      sources={unforkData.impactMetrics.dailyToll.livesLost.metricSources?.flatMap(ms => ms.urls) || []}
+      sourceNote={unforkData.impactMetrics.dailyToll.livesLost.metricSources?.[0]?.note}
+    />
+    <ImpactCounter
+	  suffix={unforkData.impactMetrics.dailyToll.moneyWasted.units}
+      label={`Money Lost`}
+      value={unforkData.impactMetrics.dailyToll.moneyWasted}
+      color="#FF6B35"
+      sources={unforkData.impactMetrics.dailyToll.moneyWasted.metricSources?.flatMap(ms => ms.urls) || []}
+      sourceNote={unforkData.impactMetrics.dailyToll.moneyWasted.metricSources?.[0]?.note}
+    />
+    <ImpactCounter
+	  suffix={unforkData.impactMetrics.dailyToll.childrenWithoutEducation.units}
+      label={`Pushed to Illiteracy`}
+      value={unforkData.impactMetrics.dailyToll.childrenWithoutEducation}
+      color="#FFA500"
+      sources={unforkData.impactMetrics.dailyToll.childrenWithoutEducation.metricSources?.flatMap(ms => ms.urls) || []}
+      sourceNote={unforkData.impactMetrics.dailyToll.childrenWithoutEducation.metricSources?.[0]?.note}
+    />
+    <ImpactCounter
+	  suffix={unforkData.impactMetrics.dailyToll.familiesInPoverty.units}
+      label={`Pushed to Poverty`}
+      value={unforkData.impactMetrics.dailyToll.familiesInPoverty}
+      color="#8B0000"
+      sources={unforkData.impactMetrics.dailyToll.familiesInPoverty.metricSources?.flatMap(ms => ms.urls) || []}
+      sourceNote={unforkData.impactMetrics.dailyToll.familiesInPoverty.metricSources?.[0]?.note}
+    />
+  </div>
+</section>
+
+<style>
+  .daily-toll-metrics {
+    width: 100%;
+  }
+
+  .toll-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .toll-metrics-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

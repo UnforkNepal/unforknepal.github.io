@@ -1,0 +1,1833 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/$defs/UnforkNepalData",
+  "$defs": {
+    "UnforkNepalData": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "lastUpdated": {
+          "type": "string"
+        },
+        "dataSources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organization": {
+                "type": "string"
+              },
+              "report": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "lastAccessed": {
+                "type": "string"
+              },
+              "verificationStatus": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "impactMetrics": {
+          "type": "object",
+          "properties": {
+            "dailyToll": {
+              "type": "object",
+              "properties": {
+                "methodologyNote": {
+                  "type": "string"
+                },
+                "livesLost": {
+                  "type": "object",
+                  "properties": {
+                    "estimate": {
+                      "type": "integer"
+                    },
+                    "units": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "confidence": {
+                      "type": "string",
+                      "enum": [
+                        "high",
+                        "low",
+                        "medium"
+                      ]
+                    },
+                    "metricSources": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "note": {
+                            "type": "string"
+                          },
+                          "urls": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "moneyWasted": {
+                  "type": "object",
+                  "properties": {
+                    "estimate": {
+                      "type": "integer"
+                    },
+                    "units": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "confidence": {
+                      "type": "string",
+                      "enum": [
+                        "high",
+                        "low",
+                        "medium"
+                      ]
+                    },
+                    "metricSources": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "note": {
+                            "type": "string"
+                          },
+                          "urls": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "childrenWithoutEducation": {
+                  "type": "object",
+                  "properties": {
+                    "estimate": {
+                      "type": "integer"
+                    },
+                    "units": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "confidence": {
+                      "type": "string",
+                      "enum": [
+                        "high",
+                        "low",
+                        "medium"
+                      ]
+                    },
+                    "metricSources": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "note": {
+                            "type": "string"
+                          },
+                          "urls": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "familiesInPoverty": {
+                  "type": "object",
+                  "properties": {
+                    "estimate": {
+                      "type": "integer"
+                    },
+                    "units": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "confidence": {
+                      "type": "string",
+                      "enum": [
+                        "high",
+                        "low",
+                        "medium"
+                      ]
+                    },
+                    "metricSources": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "note": {
+                            "type": "string"
+                          },
+                          "urls": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "monthlyImpact": {
+              "type": "object",
+              "properties": {
+                "casesInvestigated": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "integer"
+                    },
+                    "units": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "confidence": {
+                      "type": "string",
+                      "enum": [
+                        "high",
+                        "low",
+                        "medium"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "moneyRecovered": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "integer"
+                    },
+                    "units": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "confidence": {
+                      "type": "string",
+                      "enum": [
+                        "high",
+                        "low",
+                        "medium"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "communitiesHelped": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "integer"
+                    },
+                    "units": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "confidence": {
+                      "type": "string",
+                      "enum": [
+                        "high",
+                        "low",
+                        "medium"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "volunteersActive": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "integer"
+                    },
+                    "units": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "confidence": {
+                      "type": "string",
+                      "enum": [
+                        "high",
+                        "low",
+                        "medium"
+                      ]
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "featuredCase": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "object",
+                  "properties": {
+                    "province": {
+                      "type": "string"
+                    },
+                    "district": {
+                      "type": "string"
+                    },
+                    "coordinatesApprox": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "metrics": {
+                  "type": "object",
+                  "properties": {
+                    "estimatedMoneyWasted": {
+                      "type": "integer"
+                    },
+                    "moneyUnits": {
+                      "type": "string"
+                    },
+                    "livesLostDirectly": {
+                      "type": "integer"
+                    },
+                    "familiesAffected": {
+                      "type": "integer"
+                    },
+                    "publicAssetsDiverted": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "status": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "string",
+                  "enum": [
+                    "high",
+                    "low",
+                    "medium"
+                  ]
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "caseStudies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "caseId": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "province": {
+                "type": "string"
+              },
+              "district": {
+                "type": "string"
+              },
+              "yearOpened": {
+                "type": "integer"
+              },
+              "reportedMoneyWasted": {
+                "type": "integer"
+              },
+              "moneyUnits": {
+                "type": "string"
+              },
+              "reportedLivesLost": {
+                "type": "integer"
+              },
+              "familiesAffected": {
+                "type": "integer"
+              },
+              "humanImpactNarrative": {
+                "type": "string"
+              },
+              "investigationStatus": {
+                "type": "string"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "high",
+                  "low",
+                  "medium"
+                ]
+              }
+            }
+          }
+        },
+        "testimonials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "anonymousName": {
+                "type": "string"
+              },
+              "age": {
+                "type": "integer"
+              },
+              "province": {
+                "type": "string"
+              },
+              "relatedCaseId": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "collectorOrganization": {
+                "type": "string"
+              },
+              "verificationMethods": {
+                "type": "string"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "high",
+                  "low",
+                  "medium"
+                ]
+              },
+              "ageRange": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "methodology": {
+          "type": "object",
+          "properties": {
+            "researchPhase": {
+              "type": "string"
+            },
+            "validationPhase": {
+              "type": "string"
+            },
+            "structuringPhase": {
+              "type": "string"
+            },
+            "reviewPhase": {
+              "type": "string"
+            },
+            "outputPhase": {
+              "type": "string"
+            }
+          }
+        },
+        "notesAndLimitations": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "type": "string"
+            },
+            "2": {
+              "type": "string"
+            },
+            "3": {
+              "type": "string"
+            },
+            "4": {
+              "type": "string"
+            }
+          }
+        },
+        "updateGuidelines": {
+          "type": "object",
+          "properties": {
+            "dailyToll": {
+              "type": "string"
+            },
+            "caseStudies": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "string"
+            },
+            "impactMetrics": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "DataSources": {
+      "type": "object",
+      "properties": {
+        "organization": {
+          "type": "string"
+        },
+        "report": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "lastAccessed": {
+          "type": "string"
+        },
+        "verificationStatus": {
+          "type": "string"
+        }
+      }
+    },
+    "DataSourcesItem": {
+      "type": "object",
+      "properties": {
+        "organization": {
+          "type": "string"
+        },
+        "report": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "lastAccessed": {
+          "type": "string"
+        },
+        "verificationStatus": {
+          "type": "string"
+        }
+      }
+    },
+    "ImpactMetrics": {
+      "type": "object",
+      "properties": {
+        "dailyToll": {
+          "type": "object",
+          "properties": {
+            "methodologyNote": {
+              "type": "string"
+            },
+            "livesLost": {
+              "type": "object",
+              "properties": {
+                "estimate": {
+                  "type": "integer"
+                },
+                "units": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "string"
+                },
+                "metricSources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "note": {
+                        "type": "string"
+                      },
+                      "urls": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "moneyWasted": {
+              "type": "object",
+              "properties": {
+                "estimate": {
+                  "type": "integer"
+                },
+                "units": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "string"
+                },
+                "metricSources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "note": {
+                        "type": "string"
+                      },
+                      "urls": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "childrenWithoutEducation": {
+              "type": "object",
+              "properties": {
+                "estimate": {
+                  "type": "integer"
+                },
+                "units": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "string"
+                },
+                "metricSources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "note": {
+                        "type": "string"
+                      },
+                      "urls": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "familiesInPoverty": {
+              "type": "object",
+              "properties": {
+                "estimate": {
+                  "type": "integer"
+                },
+                "units": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "string"
+                },
+                "metricSources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "note": {
+                        "type": "string"
+                      },
+                      "urls": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "monthlyImpact": {
+          "type": "object",
+          "properties": {
+            "casesInvestigated": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer"
+                },
+                "units": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "moneyRecovered": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer"
+                },
+                "units": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "communitiesHelped": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer"
+                },
+                "units": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "volunteersActive": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer"
+                },
+                "units": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "featuredCase": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "province": {
+                  "type": "string"
+                },
+                "district": {
+                  "type": "string"
+                },
+                "coordinatesApprox": {
+                  "type": "string"
+                }
+              }
+            },
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "estimatedMoneyWasted": {
+                  "type": "integer"
+                },
+                "moneyUnits": {
+                  "type": "string"
+                },
+                "livesLostDirectly": {
+                  "type": "integer"
+                },
+                "familiesAffected": {
+                  "type": "integer"
+                },
+                "publicAssetsDiverted": {
+                  "type": "string"
+                }
+              }
+            },
+            "status": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "DailyToll": {
+      "type": "object",
+      "properties": {
+        "methodologyNote": {
+          "type": "string"
+        },
+        "livesLost": {
+          "type": "object",
+          "properties": {
+            "estimate": {
+              "type": "integer"
+            },
+            "units": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string"
+            },
+            "metricSources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "note": {
+                    "type": "string"
+                  },
+                  "urls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "moneyWasted": {
+          "type": "object",
+          "properties": {
+            "estimate": {
+              "type": "integer"
+            },
+            "units": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string"
+            },
+            "metricSources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "note": {
+                    "type": "string"
+                  },
+                  "urls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "childrenWithoutEducation": {
+          "type": "object",
+          "properties": {
+            "estimate": {
+              "type": "integer"
+            },
+            "units": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string"
+            },
+            "metricSources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "note": {
+                    "type": "string"
+                  },
+                  "urls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "familiesInPoverty": {
+          "type": "object",
+          "properties": {
+            "estimate": {
+              "type": "integer"
+            },
+            "units": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string"
+            },
+            "metricSources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "note": {
+                    "type": "string"
+                  },
+                  "urls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "LivesLost": {
+      "type": "object",
+      "properties": {
+        "estimate": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "metricSources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "note": {
+                "type": "string"
+              },
+              "urls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "MetricSources": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "urls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UrlsItem": {
+      "type": "string"
+    },
+    "MetricSourcesItem": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "urls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "MoneyWasted": {
+      "type": "object",
+      "properties": {
+        "estimate": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "metricSources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "note": {
+                "type": "string"
+              },
+              "urls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "MetricSources1": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "urls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UrlsItem1": {
+      "type": "string"
+    },
+    "MetricSourcesItem1": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "urls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ChildrenWithoutEducation": {
+      "type": "object",
+      "properties": {
+        "estimate": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "metricSources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "note": {
+                "type": "string"
+              },
+              "urls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "MetricSources2": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "urls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UrlsItem2": {
+      "type": "string"
+    },
+    "MetricSourcesItem2": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "urls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "FamiliesInPoverty": {
+      "type": "object",
+      "properties": {
+        "estimate": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "metricSources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "note": {
+                "type": "string"
+              },
+              "urls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "MetricSources3": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "urls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UrlsItem3": {
+      "type": "string"
+    },
+    "MetricSourcesItem3": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "urls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "MonthlyImpact": {
+      "type": "object",
+      "properties": {
+        "casesInvestigated": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "integer"
+            },
+            "units": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "moneyRecovered": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "integer"
+            },
+            "units": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "communitiesHelped": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "integer"
+            },
+            "units": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "volunteersActive": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "integer"
+            },
+            "units": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "CasesInvestigated": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SourcesItem": {
+      "type": "string"
+    },
+    "MoneyRecovered": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SourcesItem1": {
+      "type": "string"
+    },
+    "CommunitiesHelped": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SourcesItem2": {
+      "type": "string"
+    },
+    "VolunteersActive": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SourcesItem3": {
+      "type": "string"
+    },
+    "FeaturedCase": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "province": {
+              "type": "string"
+            },
+            "district": {
+              "type": "string"
+            },
+            "coordinatesApprox": {
+              "type": "string"
+            }
+          }
+        },
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "estimatedMoneyWasted": {
+              "type": "integer"
+            },
+            "moneyUnits": {
+              "type": "string"
+            },
+            "livesLostDirectly": {
+              "type": "integer"
+            },
+            "familiesAffected": {
+              "type": "integer"
+            },
+            "publicAssetsDiverted": {
+              "type": "string"
+            }
+          }
+        },
+        "status": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Location": {
+      "type": "object",
+      "properties": {
+        "province": {
+          "type": "string"
+        },
+        "district": {
+          "type": "string"
+        },
+        "coordinatesApprox": {
+          "type": "string"
+        }
+      }
+    },
+    "Metrics": {
+      "type": "object",
+      "properties": {
+        "estimatedMoneyWasted": {
+          "type": "integer"
+        },
+        "moneyUnits": {
+          "type": "string"
+        },
+        "livesLostDirectly": {
+          "type": "integer"
+        },
+        "familiesAffected": {
+          "type": "integer"
+        },
+        "publicAssetsDiverted": {
+          "type": "string"
+        }
+      }
+    },
+    "SourcesItem4": {
+      "type": "string"
+    },
+    "CaseStudies": {
+      "type": "object",
+      "properties": {
+        "caseId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "province": {
+          "type": "string"
+        },
+        "district": {
+          "type": "string"
+        },
+        "yearOpened": {
+          "type": "integer"
+        },
+        "reportedMoneyWasted": {
+          "type": "integer"
+        },
+        "moneyUnits": {
+          "type": "string"
+        },
+        "reportedLivesLost": {
+          "type": "integer"
+        },
+        "familiesAffected": {
+          "type": "integer"
+        },
+        "humanImpactNarrative": {
+          "type": "string"
+        },
+        "investigationStatus": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "string"
+        }
+      }
+    },
+    "SourcesItem5": {
+      "type": "string"
+    },
+    "CaseStudiesItem": {
+      "type": "object",
+      "properties": {
+        "caseId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "province": {
+          "type": "string"
+        },
+        "district": {
+          "type": "string"
+        },
+        "yearOpened": {
+          "type": "integer"
+        },
+        "reportedMoneyWasted": {
+          "type": "integer"
+        },
+        "moneyUnits": {
+          "type": "string"
+        },
+        "reportedLivesLost": {
+          "type": "integer"
+        },
+        "familiesAffected": {
+          "type": "integer"
+        },
+        "humanImpactNarrative": {
+          "type": "string"
+        },
+        "investigationStatus": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "string"
+        }
+      }
+    },
+    "Testimonials": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "anonymousName": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer"
+        },
+        "province": {
+          "type": "string"
+        },
+        "relatedCaseId": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "collectorOrganization": {
+          "type": "string"
+        },
+        "verificationMethods": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "ageRange": {
+          "type": "string"
+        }
+      }
+    },
+    "SourcesItem6": {
+      "type": "string"
+    },
+    "TestimonialsItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "anonymousName": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer"
+        },
+        "province": {
+          "type": "string"
+        },
+        "relatedCaseId": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "collectorOrganization": {
+          "type": "string"
+        },
+        "verificationMethods": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "ageRange": {
+          "type": "string"
+        }
+      }
+    },
+    "Methodology": {
+      "type": "object",
+      "properties": {
+        "researchPhase": {
+          "type": "string"
+        },
+        "validationPhase": {
+          "type": "string"
+        },
+        "structuringPhase": {
+          "type": "string"
+        },
+        "reviewPhase": {
+          "type": "string"
+        },
+        "outputPhase": {
+          "type": "string"
+        }
+      }
+    },
+    "NotesAndLimitations": {
+      "type": "object",
+      "properties": {
+        "1": {
+          "type": "string"
+        },
+        "2": {
+          "type": "string"
+        },
+        "3": {
+          "type": "string"
+        },
+        "4": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateGuidelines": {
+      "type": "object",
+      "properties": {
+        "dailyToll": {
+          "type": "string"
+        },
+        "caseStudies": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "string"
+        },
+        "impactMetrics": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

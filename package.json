@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/db": "^0.17.2",
+    "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.13.7",
     "sharp": "^0.33.0"
   }

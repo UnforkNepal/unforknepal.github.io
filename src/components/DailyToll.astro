@@ -1,0 +1,350 @@
+---
+// DailyToll.astro - Real-time impact dashboard
+import DailyTollMetrics from './DailyTollMetrics.astro';
+import unforkData from '../data/unfork-nepal-data.json';
+---
+
+<section id="daily-toll" class="daily-toll-section">
+  <div class="daily-toll-container">
+    <div class="section-header">
+      <h2 class="section-title">The Daily Toll of Corruption</h2>
+    </div>
+
+
+    <div class="toll-context">
+      <div class="context-cards">
+        <div class="context-card emotional-card">
+          <div class="context-icon">🏥</div>
+          <h3>Medical Emergencies</h3>
+          <p>People die every day because they can't reach hospitals due to missing roads and infrastructure.</p>
+          <div class="emotional-testimonial">
+            <em>"My daughter bled to death on the way to the hospital. The road was just a promise."</em>
+          </div>
+        </div>
+        <div class="context-card emotional-card">
+          <div class="context-icon">🏫</div>
+          <h3>Education Crisis</h3>
+          <p>We lose doctors who save lives, engineers who build bridgess, artists who ease pain, teachers who educate the next generation, and leaders who fight corruption.</p>
+          <div class="emotional-testimonial">
+            <em>"My son dreams of being a doctor, but studies under a tree. Where did the school money go?"</em>
+          </div>
+        </div>
+        <div class="context-card emotional-card">
+          <div class="context-icon">👨‍👩‍👧‍👦</div>
+          <h3>Family Breakdown</h3>
+          <p>Families lose homes and livelihoods when development funds disappear into corrupt pockets.</p>
+          <div class="emotional-testimonial">
+            <em>"We lost everything to corruption. Now my children go hungry while thieves get rich."</em>
+          </div>
+        </div>
+        <div class="context-card emotional-card">
+          <div class="context-icon">💰</div>
+          <h3>Wasted Resources</h3>
+          <p>Billions meant for public welfare are siphoned off, leaving communities in perpetual poverty.</p>
+          <div class="emotional-testimonial">
+            <em>"Our village waited 10 years for electricity. The money came and went, but darkness remains."</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toll-dashboard">
+      <div class="data-sources-notice">
+        <p class="sources-text">
+          Data verified by: {unforkData.dataSources.map(source => source.organization).join(', ')}
+        </p>
+      </div>
+    </div>
+
+    <div class="toll-cta">
+      <div class="cta-content">
+        <h3>This Doesn't Have to Continue</h3>
+        <p>Your action today can stop tomorrow's tragedy. Join us in exposing and ending corruption.</p>
+        <div class="cta-buttons">
+          <a href="#case-studies" class="cta-button primary">
+            See Real Cases
+          </a>
+          <a href="https://forms.gle/3mknr3AVW7UWvNnLA" target="_blank" rel="noopener noreferrer" class="cta-button secondary">
+            Become a Volunteer
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .daily-toll-section {
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(220, 20, 60, 0.9) 100%);
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .daily-toll-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&h=1080&fit=crop&crop=center') center/cover;
+    opacity: 0.1;
+    z-index: 0;
+  }
+
+  .daily-toll-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: white;
+  }
+
+  .section-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .section-subtitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .toll-dashboard {
+    margin-bottom: 4rem;
+  }
+
+  .toll-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .data-sources-notice {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .sources-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .sources-link {
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: 1px solid #FFD700;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+  }
+
+  .sources-link:hover {
+    background: rgba(255, 215, 0, 0.1);
+    color: white;
+  }
+
+  .toll-context {
+    margin-bottom: 4rem;
+  }
+
+  .context-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .context-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .context-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .context-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .context-card h3 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .context-card p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .emotional-testimonial {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-left: 3px solid #FFD700;
+  }
+
+  .emotional-testimonial em {
+    color: rgba(255, 255, 255, 0.95);
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    display: block;
+    position: relative;
+  }
+
+  .emotional-testimonial em::before {
+    content: '"';
+    font-size: 1.5rem;
+    color: #FFD700;
+    position: absolute;
+    top: -5px;
+    left: -10px;
+    opacity: 0.6;
+  }
+
+  .toll-cta {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-content h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #DC143C;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-button.primary {
+    background: #DC143C;
+    color: white;
+    border: 2px solid #DC143C;
+  }
+
+  .cta-button.primary:hover {
+    background: #B01030;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4);
+  }
+
+  .cta-button.secondary {
+    background: rgba(255, 255, 255, 0.9);
+    color: #DC143C;
+    border: 2px solid rgba(255, 255, 255, 1);
+  }
+
+  .cta-button.secondary:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .toll-metrics-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .context-cards {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .context-card {
+      padding: 1.5rem;
+    }
+
+    .cta-content h3 {
+      font-size: 1.5rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-button {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>

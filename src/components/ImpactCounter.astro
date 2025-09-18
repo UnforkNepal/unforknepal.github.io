@@ -1,0 +1,147 @@
+---
+
+interface Props {
+  label: string;
+  value: number | any;
+  suffix?: string;
+  color?: string;
+  showSource?: boolean;
+  sources?: string[];
+  sourceNote?: string;
+}
+
+const { label, value: rawValue, suffix = '', color = '#DC143C', showSource = false, sources, sourceNote } = Astro.props;
+
+// Handle both old format (number) and new format (MetricType with estimate)
+const value = typeof rawValue === 'object' ? rawValue.estimate : rawValue;
+const source = typeof rawValue === 'object' ? rawValue.description : undefined;
+
+const isMoney = suffix.includes('NPR');
+
+function formatNumber(num: number, isMoney: boolean): string {
+  if (isMoney) {
+    if (num >= 10000000) {
+      return (num / 10000000).toFixed(0) + ' Cr NPR';
+    } else if (num >= 100000) {
+      return (num / 100000).toFixed(0) + ' L NPR';
+    } else if (num >= 1000) {
+      return (num / 1000).toFixed(1) + 'K NPR';
+    }
+    return num.toString() + ' NPR';
+  } else {
+    if (num >= 10000000) {
+      return (num / 10000000).toFixed(1) + 'Cr';
+    } else if (num >= 100000) {
+      return (num / 100000).toFixed(0) + 'L';
+    } else if (num >= 1000) {
+      return (num / 1000).toFixed(1) + 'K';
+    }
+    return num.toString();
+  }
+}
+
+const formattedInitial = formatNumber(value, isMoney);
+const displaySuffix = isMoney ? suffix.replace('NPR ', '') : suffix;
+---
+
+<div class="impact-counter" style={`--counter-color: ${color};`} data-is-money={isMoney ? "true" : "false"}>
+  {sources && sources.length > 0 && (
+    <a
+      href={sources[0]}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="info-icon"
+      title={sourceNote || "View source report"}
+    >
+      ⓘ
+    </a>
+  )}
+  <div class="counter-label">{label}</div>
+  <div class="counter-value" data-target={value}>
+    {formattedInitial}
+  </div>
+  <div class="counter-suffix">
+    {displaySuffix}
+  </div>
+</div>
+
+<style>
+  .impact-counter {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .counter-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--counter-color);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .counter-suffix {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .info-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    font-size: 0.8em;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .info-icon:hover {
+    opacity: 1;
+    color: #DC143C;
+  }
+
+  .counter-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    margin: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .impact-counter {
+      padding: 0.75rem;
+      min-height: 100px;
+    }
+
+    .counter-value {
+      font-size: 2rem;
+    }
+
+    .counter-suffix {
+      font-size: 1rem;
+    }
+
+    .counter-label {
+      font-size: 0.8rem;
+    }
+  }
+</style>

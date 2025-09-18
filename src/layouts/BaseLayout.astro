@@ -1,163 +1,124 @@
 ---
-const { title } = Astro.props;
+const {
+	title,
+	description = "Unfork Nepal: Nepal's citizen-powered watchdog against corruption. Join us in the fight to end deadly corruption and save lives.",
+	keywords = "",
+	ogImage = "",
+	twitterImage = ""
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="Workforce Action Plan for Gen-Z Revolution Agendas">
+	<meta name="description" content={description}>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<title>{title}</title>
+	<link rel="icon" type="image/jpeg" href="/images/logo.jpg" />
+	<link rel="stylesheet" href="/assets/styles.css" />
 	<style>
-		:root {
-			--primary-color: #1e40af;
-			--secondary-color: #3b82f6;
-			--accent-color: #f59e0b;
-			--text-color: #1f2937;
-			--bg-color: #ffffff;
-			--light-bg: #f8fafc;
-			--border-color: #e5e7eb;
+		html {
+			scroll-behavior: auto;
 		}
-
-		body {
-			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-			line-height: 1.6;
-			color: var(--text-color);
-			background-color: var(--bg-color);
-			margin: 0;
-			padding: 0;
-		}
-
-		.container {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 0 20px;
-		}
-
-		header {
-			background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-			color: white;
-			padding: 2rem 0;
-			text-align: center;
-			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-		}
-
-		header h1 {
-			margin: 0;
-			font-size: 2.5rem;
-			font-weight: 700;
-			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		}
-
-		header p {
-			margin: 0.5rem 0 0 0;
-			font-size: 1.2rem;
-			opacity: 0.9;
-		}
-
-		main {
-			padding: 3rem 0;
-			background-color: var(--light-bg);
-		}
-
 		.content {
-			display: flex;
-			overflow-x: auto;
-			scroll-snap-type: x mandatory;
-			scroll-behavior: smooth;
-			height: 100vh;
-			width: 100vw;
-		}
-
-		h2 {
-			color: var(--primary-color);
-			font-size: 1.8rem;
-			font-weight: 600;
-			margin-top: 2rem;
-			margin-bottom: 1rem;
-			border-bottom: 3px solid var(--accent-color);
-			padding-bottom: 0.5rem;
-		}
-
-		h3 {
-			color: var(--secondary-color);
-			font-size: 1.4rem;
-			font-weight: 600;
-			margin-top: 1.5rem;
-			margin-bottom: 0.8rem;
-		}
-
-		h4 {
-			color: var(--text-color);
-			font-size: 1.2rem;
-			font-weight: 500;
-			margin-top: 1.2rem;
-			margin-bottom: 0.6rem;
-		}
-
-		p {
-			margin-bottom: 1rem;
-			font-size: 1rem;
-			line-height: 1.7;
-		}
-
-		ul, ol {
-			margin-bottom: 1.5rem;
-			padding-left: 1.5rem;
-		}
-
-		li {
-			margin-bottom: 0.5rem;
-			line-height: 1.6;
-		}
-
-		strong {
-			color: var(--primary-color);
-			font-weight: 600;
-		}
-
-		.section {
-			margin-bottom: 3rem;
-		}
-
-		.highlight {
-			background-color: var(--light-bg);
-			border-left: 4px solid var(--accent-color);
-			padding: 1rem;
-			margin: 1.5rem 0;
-			border-radius: 0 8px 8px 0;
-		}
-
-		@media (max-width: 768px) {
-			header h1 {
-				font-size: 2rem;
-			}
-
-			.content {
-				padding: 2rem;
-				margin: 0 10px;
-			}
-
-			h2 {
-				font-size: 1.6rem;
-			}
-
-			h3 {
-				font-size: 1.3rem;
-			}
+			display: block !important;
+			overflow-x: visible !important;
+			scroll-snap-type: none !important;
+			scroll-behavior: auto !important;
+			width: 100% !important;
 		}
 	</style>
+
+	<script src="/assets/smooth-scroll.js" defer></script>
+
+	<script>
+		// Register service worker
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', () => {
+				navigator.serviceWorker.register('/sw.js')
+					.then((registration) => {
+						console.log('Service Worker registered successfully:', registration.scope);
+					})
+					.catch((error) => {
+						console.log('Service Worker registration failed:', error);
+					});
+			});
+		}
+	</script>
+
+	<title>{title}</title>
+
+	<!-- Basic Meta Tags -->
+	<meta name="description" content={description} />
+	{keywords && <meta name="keywords" content={keywords} />}
+	<meta name="author" content="Unfork Nepal" />
+	<meta name="robots" content="index, follow" />
+
+	<!-- Canonical URL -->
+	<link rel="canonical" href="https://unforknepal.org/" />
+
+	<!-- Preconnect to external domains -->
+	<link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+	<link rel="preconnect" href="https://matrix.to" crossorigin />
+	<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+	<!-- Security Headers -->
+	<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+	<meta http-equiv="X-Frame-Options" content="DENY" />
+	<meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+	<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+
+	<!-- Theme and Mobile Optimization -->
+	<meta name="theme-color" content="#8B0000" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="apple-mobile-web-app-title" content="Unfork Nepal" />
+
+	<!-- Structured Data -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "Unfork Nepal",
+		"description": "Nepal's citizen-powered watchdog against corruption",
+		"url": "https://unforknepal.org",
+		"logo": "https://unforknepal.org/images/logo.jpg",
+		"sameAs": [
+			"https://matrix.to/#/#unfork-nepal:matrix.org"
+		],
+		"contactPoint": {
+			"@type": "ContactPoint",
+			"contactType": "customer service",
+			"url": "https://matrix.to/#/#unfork-nepal:matrix.org"
+		}
+	}
+	</script>
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://unforknepal.org" />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	{ogImage && <meta property="og:image" content={ogImage} />}
+	{ogImage && <meta property="og:image:width" content="1200" />}
+	{ogImage && <meta property="og:image:height" content="630" />}
+	<meta property="og:site_name" content="Unfork Nepal" />
+	<meta property="og:locale" content="en_US" />
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://unforknepal.org" />
+	<meta property="twitter:title" content={title} />
+	<meta property="twitter:description" content={description} />
+	{twitterImage && <meta property="twitter:image" content={twitterImage} />}
+	<meta property="twitter:image:alt" content="Corruption Kills - Blood on Corrupt Hands - Unfork Nepal" />
+
+	<!-- Additional Social Media Tags -->
+	<meta name="twitter:site" content="@unforknepal" />
+	<meta name="twitter:creator" content="@unforknepal" />
 </head>
 <body>
-	<header>
-		<div class="container">
-			<h1>Unfork Nepal</h1>
-			<p>Workforce Action Plan for Gen-Z Revolution Agendas</p>
-		</div>
-	</header>
-
 	<main>
 		<div class="container">
 			<div class="content">
