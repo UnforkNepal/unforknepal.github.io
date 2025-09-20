@@ -5,3 +5,6 @@ gen:
 
 fmt:
 	deno fmt .
+
+pdf in out:
+	pandoc {{in}} -o {{out}} --pdf-engine typst --variable geometry:margin=1in --variable fontsize=11pt --variable sectionpagebreak=true
